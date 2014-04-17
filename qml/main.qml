@@ -28,8 +28,9 @@ ApplicationWindow {
     color: helper.myColors.bglight
 
     Item {
-        anchors.fill: parent
-        anchors.margins: 30
+        width: 500
+        height: 670
+        anchors.centerIn: parent
 
         focus: true
         Keys.onPressed: MyScript.moveKey(event)
