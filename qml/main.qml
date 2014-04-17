@@ -2,6 +2,7 @@ import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 import QtQuick.Dialogs 1.1
+import QtQuick.Window 2.1
 import "2048.js" as MyScript
 
 ApplicationWindow {
@@ -10,29 +11,31 @@ ApplicationWindow {
     height: 730
     title: qsTr("2048 Game");
 
-    Rectangle {
-        anchors.fill: parent
+    x: (Screen.width - width) / 2
+    y: (Screen.height - height) / 2
 
-        Item {
-            id: helper
-            property var myColors: {"bglight": "#FAF8EF",
-                                    "bggray": Qt.rgba(238/255, 228/255, 218/255, 0.35),
-                                    "bgdark": "#BBADA0",
-                                    "fglight": "#EEE4DA",
-                                    "fgdark": "#776E62",
-                                    "bgbutton": "#8F7A66", // Background color for the "New Game" button
-                                    "fgbutton": "#F9F6F2" // Foreground color for the "New Game" button
-            }
+    Item {
+        id: helper
+        property var myColors: {"bglight": "#FAF8EF",
+                                "bggray": Qt.rgba(238/255, 228/255, 218/255, 0.35),
+                                "bgdark": "#BBADA0",
+                                "fglight": "#EEE4DA",
+                                "fgdark": "#776E62",
+                                "bgbutton": "#8F7A66", // Background color for the "New Game" button
+                                "fgbutton": "#F9F6F2" // Foreground color for the "New Game" button
         }
+    }
+    color: helper.myColors.bglight
 
-        color: helper.myColors.bglight
+    Item {
+        anchors.fill: parent
+        anchors.margins: 30
+
         focus: true
         Keys.onPressed: MyScript.moveKey(event)
 
         Text {
             id: gameName
-            x: 30
-            y: 30
             font.pixelSize: 55
             font.bold: true
             text: "2048"
@@ -40,9 +43,7 @@ ApplicationWindow {
         }
 
         Row {
-            y: 30
             anchors.right: parent.right
-            anchors.rightMargin: 30
             spacing: 5
             Repeater {
                 id: scoreBoard
@@ -74,8 +75,7 @@ ApplicationWindow {
 
         Text {
             id: banner
-            x: 30
-            y: 120
+            y: 90
             height: 40
             text: "Join the numbers and get to the <b>2048 tile!</b>"
             color: helper.myColors.fgdark
@@ -86,9 +86,8 @@ ApplicationWindow {
         Button {
             width: 129
             height: 40
-            y: 120
+            y: 90
             anchors.right: parent.right
-            anchors.rightMargin: 30
 
             style: ButtonStyle {
                 background: Rectangle {
@@ -107,8 +106,7 @@ ApplicationWindow {
         }
 
         Rectangle {
-            x: 30
-            y: 200
+            y: 170
             width: 500
             height: 500
             color: helper.myColors.bgdark
