@@ -6,6 +6,7 @@ import QtQuick.Window 2.1
 import "2048.js" as MyScript
 
 ApplicationWindow {
+    id: mainWindow
     visible: true
     width: 550
     height: 740
@@ -14,6 +15,8 @@ ApplicationWindow {
 
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
+
+    signal helpMenuTriggered
 
     menuBar: MenuBar {
         Menu {
@@ -27,6 +30,14 @@ ApplicationWindow {
                 text: qsTr("Exit")
                 shortcut: "Ctrl+Q"
                 onTriggered: Qt.quit();
+            }
+        }
+        Menu {
+            id: helpMenu
+            title: qsTr("Help")
+            MenuItem {
+                text: "About Qt"
+                onTriggered: mainWindow.helpMenuTriggered()
             }
         }
     }
@@ -132,6 +143,7 @@ ApplicationWindow {
             radius: 6
 
             Grid {
+                id: tileGrid
                 x: 15;
                 y: 15;
                 rows: 4; columns: 4; spacing: 15
@@ -143,22 +155,10 @@ ApplicationWindow {
                         width: 425/4; height: 425/4
                         radius: 3
                         color: helper.myColors.bggray
-                        property string tileText: ""
-                        property int tileFontSize: 55
-                        property color tileColor: helper.myColors.fgdark
-
-                        Text {
-                            text: tileText
-                            color: tileColor
-                            font.pixelSize: tileFontSize
-                            font.bold: true
-                            anchors.centerIn: parent
-                        }
                     }
                 }
             }
         }
-
 
         MessageDialog {
             id: deadMessage

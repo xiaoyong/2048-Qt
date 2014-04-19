@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    myclass.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,3 +16,6 @@ include(deployment.pri)
 # Setting the application icon
 RC_ICONS = 2048.ico # On Windows
 ICON = 2048.ico # On Mac OSX
+
+HEADERS += \
+    myclass.h
