@@ -7,12 +7,30 @@ import "2048.js" as MyScript
 
 ApplicationWindow {
     visible: true
-    width: 560
-    height: 730
+    width: 550
+    height: 740
     title: qsTr("2048 Game");
+    flags: Qt.Window | Qt.MSWindowsFixedSizeDialogHint
 
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
+
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("File")
+            MenuItem {
+                text: qsTr("New Game")
+                shortcut: "Ctrl+N"
+                onTriggered: MyScript.startupFunction();
+            }
+            MenuItem {
+                text: qsTr("Exit")
+                shortcut: "Ctrl+Q"
+                onTriggered: Qt.quit();
+            }
+        }
+    }
+
 
     Item {
         id: helper

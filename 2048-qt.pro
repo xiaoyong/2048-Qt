@@ -11,3 +11,7 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+# Setting the application icon
+RC_ICONS = 2048.ico # On Windows
+ICON = 2048.ico # On Mac OSX

@@ -45,10 +45,6 @@ function startupFunction() {
 }
 
 function moveKey(event) {
-    if ((event.key == Qt.Key_Q) && (event.modifiers & Qt.ControlModifier)) {
-        Qt.quit();
-    }
-
     var isMoved = false;
     var i, j, v, v2;
     var oldScore = score;
