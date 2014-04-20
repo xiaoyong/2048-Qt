@@ -11,7 +11,7 @@ ApplicationWindow {
     width: 550
     height: 740
     title: qsTr("2048 Game");
-    flags: Qt.Window | Qt.MSWindowsFixedSizeDialogHint
+//    flags: Qt.Window | Qt.WindowTitleHint  | Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint | Qt.CustomizeWindowHint
 
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
@@ -64,6 +64,7 @@ ApplicationWindow {
 
         Text {
             id: gameName
+            font.family: "Sans-serif"
             font.pixelSize: 55
             font.bold: true
             text: "2048"
@@ -86,6 +87,7 @@ ApplicationWindow {
                         text: (index == 0) ? qsTr("SCORE") : qsTr("BEST")
                         anchors.horizontalCenter: parent.horizontalCenter
                         y: 7
+            font.family: "Sans-serif"
                         font.pixelSize: 13
                         color: helper.myColors.fglight
                     }
@@ -93,6 +95,7 @@ ApplicationWindow {
                         text: scoreText
                         anchors.horizontalCenter: parent.horizontalCenter
                         y: 25
+            font.family: "Sans-serif"
                         font.pixelSize: 25
                         font.bold: true
                         color: "white"
@@ -102,6 +105,7 @@ ApplicationWindow {
 
             Text {
                 id: addScoreText
+        font.family: "Sans-serif"
                 font.pixelSize: 25
                 font.bold: true
                 color: Qt.rgba(119/255, 110/255, 101/255, 0.9);
@@ -142,6 +146,7 @@ ApplicationWindow {
             height: 40
             text: qsTr("Join the numbers and get to the <b>2048 tile</b>!")
             color: helper.myColors.fgdark
+            font.family: "Sans-serif"
             font.pixelSize: 16
             verticalAlignment: Text.AlignVCenter
         }
@@ -160,6 +165,7 @@ ApplicationWindow {
                         anchors.centerIn: parent
                         text: qsTr("New Game")
                         color: helper.myColors.fgbutton
+            font.family: "Sans-serif"
                         font.pixelSize: 18
                         font.bold: true
                     }

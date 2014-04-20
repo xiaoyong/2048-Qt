@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Join the numbers and get to the &lt;b&gt;2048 tile&lt;/b&gt;!</source>
-        <translation>把数字相加，得到&lt;b&gt;2048&lt;/b&gt;！</translation>
+        <translation>把相同的数字相加，得到&lt;b&gt;2048&lt;/b&gt;！</translation>
     </message>
     <message>
         <source>Game Over</source>

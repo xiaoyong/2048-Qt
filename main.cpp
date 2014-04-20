@@ -12,10 +12,14 @@ int main(int argc, char *argv[])
 
     // Localization
     QString locale = QLocale::system().name();
-    qDebug() << "Locale: " + locale;
+    QString tsFile = "2048-qt_" + locale;
 
     QTranslator translator;
-    translator.load("2048-qt_" + locale);
+    if (translator.load(tsFile, ".")) {
+        qDebug() << "Successfully loaded " + tsFile;
+    } else {
+        qDebug() << "Failed to load " + tsFile;
+    }
     app.installTranslator(&translator);
 
     QQmlApplicationEngine engine;
