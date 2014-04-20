@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick widgets
 
 SOURCES += main.cpp \
-    myclass.cpp
+    myclass.cpp \
+    settings.cpp
 
 lupdate_only {
 SOURCES += qml/main.qml \
@@ -23,6 +24,7 @@ RC_ICONS = 2048.ico # On Windows
 ICON = 2048.ico # On Mac OSX
 
 HEADERS += \
-    myclass.h
+    myclass.h \
+    settings.h
 
 TRANSLATIONS = 2048-qt_zh_CN.ts

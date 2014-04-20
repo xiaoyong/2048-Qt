@@ -1,5 +1,6 @@
 var score = 0;
-var bestScore = 0;
+var bestScore = settings.value("bestScore", 0);
+
 var gridSize = 4;
 var cellValues;
 var tileItems = [];
@@ -9,6 +10,7 @@ var labels = "2048";
 var labelFunc;
 var targetLevel = 11;
 var checkTargetFlag = true;
+var tileComponent = Qt.createComponent("Tile.qml");
 
 switch (labels) {
 case "2048":
@@ -51,6 +53,13 @@ function startupFunction() {
     createNewTileItems(true);
     updateScore(0);
     addScoreText.parent = scoreBoard.itemAt(0);
+
+    // Save the currently achieved best score
+    if (bestScore > settings.value("bestScore", 0)) {
+        console.log("Updating new high score...");
+        settings.setValue("bestScore", bestScore);
+    }
+
     console.log("Started a new game");
 }
 
@@ -339,13 +348,11 @@ function maxTileValue() {
 }
 
 function createTileObject(ind, n, isStartup) {
-    var component;
     var tile;
     var sty = computeTileStyle(n);
     var tileText = labelFunc(n);
 
-    component = Qt.createComponent("Tile.qml");
-    tile = component.createObject(tileGrid, {"x": cells.itemAt(ind).x, "y": cells.itemAt(ind).y, "color": sty.bgColor, "tileColor": sty.fgColor, "tileFontSize": sty.fontSize, "tileText": tileText});
+    tile = tileComponent.createObject(tileGrid, {"x": cells.itemAt(ind).x, "y": cells.itemAt(ind).y, "color": sty.bgColor, "tileColor": sty.fgColor, "tileFontSize": sty.fontSize, "tileText": tileText});
     if (! isStartup) {
         tile.runNewTileAnim = true;
     }
@@ -422,4 +429,12 @@ function moveMergeTilesUpDown(i, v, v2, indices, up) {
             tileItems[gridSize*j+i] = null;
         }
     }
+}
+
+function cleanUpAndQuit() {
+    if (bestScore > settings.value("bestScore", 0)) {
+        console.log("Updating new high score...");
+        settings.setValue("bestScore", bestScore);
+    }
+    Qt.quit();
 }

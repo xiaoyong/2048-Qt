@@ -22,7 +22,10 @@ Rectangle {
         font.bold: true
         anchors.centerIn: parent
         Behavior on text {
-            PropertyAnimation {
+            PropertyAnimation { target: tileContainer
+                property: "opacity"
+                from: 0.5
+                to: 1
                 duration: moveAnimTime
             }
         }

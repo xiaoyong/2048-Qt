@@ -27,7 +27,7 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("Exit")
                 shortcut: "Ctrl+Q"
-                onTriggered: Qt.quit();
+                onTriggered: MyScript.cleanUpAndQuit();
             }
         }
         Menu {
@@ -201,9 +201,7 @@ ApplicationWindow {
             onAccepted: {
                 MyScript.startupFunction();
             }
-            onRejected: {
-                Qt.quit();
-            }
+            onRejected: MyScript.cleanUpAndQuit();
         }
 
         MessageDialog {
@@ -222,6 +220,7 @@ ApplicationWindow {
             }
         }
 
-        Component.onCompleted: MyScript.startupFunction()
     }
+
+    Component.onCompleted: MyScript.startupFunction();
 }
