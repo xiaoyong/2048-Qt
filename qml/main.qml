@@ -43,6 +43,7 @@ ApplicationWindow {
 
     Item {
         id: helper
+        focus: false
         property var myColors: {"bglight": "#FAF8EF",
                                 "bggray": Qt.rgba(238/255, 228/255, 218/255, 0.35),
                                 "bgdark": "#BBADA0",
@@ -61,6 +62,11 @@ ApplicationWindow {
 
         focus: true
         Keys.onPressed: MyScript.moveKey(event)
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.forceActiveFocus()
+        }
 
         Text {
             id: gameName

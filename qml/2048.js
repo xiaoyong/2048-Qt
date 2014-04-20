@@ -82,6 +82,7 @@ function moveKey(event) {
                 cellValues[i] = v2;
             }
         }
+        event.accepted = true;
         break;
     case Qt.Key_Right:
         for (i = 0; i < gridSize; i++) {
@@ -102,6 +103,7 @@ function moveKey(event) {
                 cellValues[i] = v2;
             }
         }
+        event.accepted = true;
         break;
     case Qt.Key_Up:
         for (i = 0; i < gridSize; i++) {
@@ -118,6 +120,7 @@ function moveKey(event) {
                 }
             }
         }
+        event.accepted = true;
         break;
     case Qt.Key_Down:
         for (i = 0; i < gridSize; i++) {
@@ -139,6 +142,7 @@ function moveKey(event) {
                 moveMergeTilesUpDown(i, v, v2, indices, false);
             }
         }
+        event.accepted = true;
         break;
     }
 
