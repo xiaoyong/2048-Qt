@@ -5,6 +5,11 @@ QT += qml quick widgets
 SOURCES += main.cpp \
     myclass.cpp
 
+lupdate_only {
+SOURCES += qml/main.qml \
+           qml/2048.js
+}
+
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -19,3 +24,5 @@ ICON = 2048.ico # On Mac OSX
 
 HEADERS += \
     myclass.h
+
+TRANSLATIONS = 2048-qt_zh_CN.ts

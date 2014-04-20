@@ -49,7 +49,8 @@ function startupFunction() {
 
     updateAvailableCells();
     createNewTileItems(true);
-    updateScore();
+    updateScore(0);
+    addScoreText.parent = scoreBoard.itemAt(0);
     console.log("Started a new game");
 }
 
@@ -139,7 +140,7 @@ function moveKey(event) {
             if (bestScore < score) {
                 bestScore = score;
             }
-            updateScore();
+            updateScore(oldScore);
             if (checkTargetFlag && maxTileValue() >= targetLevel) {
                 winMessage.open();
             }
@@ -256,7 +257,12 @@ function createNewTileItems(isStartup) {
     }
 }
 
-function updateScore() {
+function updateScore(oldScore) {
+    if (score > oldScore) {
+        addScoreText.text = "+" + (score-oldScore).toString();
+        addScoreAnim.running = true;
+    }
+
     scoreBoard.itemAt(0).scoreText = MyScript.score.toString();
     scoreBoard.itemAt(1).scoreText = MyScript.bestScore.toString();
 }
@@ -344,7 +350,7 @@ function createTileObject(ind, n, isStartup) {
         tile.runNewTileAnim = true;
     }
 
-    if (tile == null) {
+    if (tile === null) {
         // Error Handling
         console.log("Error creating a new tile");
     }
@@ -366,6 +372,7 @@ function moveMergeTilesLeftRight(i, v, v2, indices, left) {
                 // Move and merge
                 tileItems[gridSize*i+j].destroyFlag = true;
                 tileItems[gridSize*i+j].z = -1;
+                tileItems[gridSize*i+j].opacity = 0;
                 tileItems[gridSize*i+j].x = cells.itemAt(gridSize*i+indices[j]).x;
 //                tileItems[gridSize*i+j].destroy();
 
@@ -398,6 +405,7 @@ function moveMergeTilesUpDown(i, v, v2, indices, up) {
                 // Move and merge
                 tileItems[gridSize*j+i].destroyFlag = true;
                 tileItems[gridSize*j+i].z = -1;
+                tileItems[gridSize*j+i].opacity = 0;
                 tileItems[gridSize*j+i].y = cells.itemAt(gridSize*indices[j]+i).y;
 //                tileItems[gridSize*j+i].destroy();
 

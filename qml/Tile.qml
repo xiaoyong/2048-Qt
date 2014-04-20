@@ -55,7 +55,6 @@ Rectangle {
 
     Behavior on y {
         NumberAnimation {
-            easing.type: Easing.InQuad
             duration: moveAnimTime
             onRunningChanged: {
                 if ((!running) && destroyFlag) {
@@ -67,7 +66,6 @@ Rectangle {
 
     Behavior on x {
         NumberAnimation {
-            easing.type: Easing.InQuad
             duration: moveAnimTime
             onRunningChanged: {
                 if ((!running) && destroyFlag) {

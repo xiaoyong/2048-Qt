@@ -16,8 +16,6 @@ ApplicationWindow {
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
 
-    signal helpMenuTriggered
-
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
@@ -36,8 +34,8 @@ ApplicationWindow {
             id: helpMenu
             title: qsTr("Help")
             MenuItem {
-                text: "About Qt"
-                onTriggered: mainWindow.helpMenuTriggered()
+                text: qsTr("About Qt")
+                onTriggered: myClass.aboutQt();
             }
         }
     }
@@ -85,7 +83,7 @@ ApplicationWindow {
                     color: helper.myColors.bgdark
                     property string scoreText: (index === 0) ? MyScript.score.toString() : MyScript.bestScore.toString()
                     Text {
-                        text: (index == 0) ? "SCORE" : "BEST"
+                        text: (index == 0) ? qsTr("SCORE") : qsTr("BEST")
                         anchors.horizontalCenter: parent.horizontalCenter
                         y: 7
                         font.pixelSize: 13
@@ -101,13 +99,48 @@ ApplicationWindow {
                     }
                 }
             }
+
+            Text {
+                id: addScoreText
+                font.pixelSize: 25
+                font.bold: true
+                color: Qt.rgba(119/255, 110/255, 101/255, 0.9);
+//                parent: scoreBoard.itemAt(0)
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                property bool runAddScore: false
+                property real yfrom: 0
+                property real yto: -(parent.y + parent.height)
+                property int addScoreAnimTime: 600
+
+                ParallelAnimation {
+                    id: addScoreAnim
+                    running: false
+
+                    NumberAnimation {
+                        target: addScoreText
+                        property: "y"
+                        from: addScoreText.yfrom
+                        to: addScoreText.yto
+                        duration: addScoreText.addScoreAnimTime
+
+                    }
+                    NumberAnimation {
+                        target: addScoreText
+                        property: "opacity"
+                        from: 1
+                        to: 0
+                        duration: addScoreText.addScoreAnimTime
+                    }
+                }
+            }
         }
 
         Text {
             id: banner
             y: 90
             height: 40
-            text: "Join the numbers and get to the <b>2048 tile!</b>"
+            text: qsTr("Join the numbers and get to the <b>2048 tile</b>!")
             color: helper.myColors.fgdark
             font.pixelSize: 16
             verticalAlignment: Text.AlignVCenter
@@ -125,7 +158,7 @@ ApplicationWindow {
                     radius: 3
                     Text{
                         anchors.centerIn: parent
-                        text: "New Game"
+                        text: qsTr("New Game")
                         color: helper.myColors.fgbutton
                         font.pixelSize: 18
                         font.bold: true
@@ -162,8 +195,8 @@ ApplicationWindow {
 
         MessageDialog {
             id: deadMessage
-            title: "Game Over"
-            text: "Game Over"
+            title: qsTr("Game Over")
+            text: qsTr("Game Over!")
             standardButtons: StandardButton.Retry | StandardButton.Abort
             onAccepted: {
                 MyScript.startupFunction();
@@ -175,8 +208,8 @@ ApplicationWindow {
 
         MessageDialog {
             id: winMessage
-            title: "You Win"
-            text: "You win! Continue playing?"
+            title: qsTr("You Win")
+            text: qsTr("You win! Continue playing?")
             standardButtons: StandardButton.Yes | StandardButton.No
             onYes: {
                 MyScript.checkTargetFlag = false;
