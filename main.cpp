@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QString tsFile = "2048-qt_" + locale;
 
     QTranslator translator;
-    if (translator.load(tsFile, ".")) {
+    if (translator.load(tsFile, ":/ts")) {
         qDebug() << "Successfully loaded " + tsFile;
     } else {
         qDebug() << "Failed to load " + tsFile;

@@ -18,6 +18,7 @@ Rectangle {
         id: tileLabel
         text: tileText
         color: tileColor
+        font.family: "Sans-serif"
         font.pixelSize: tileFontSize
         font.bold: true
         anchors.centerIn: parent

@@ -5,25 +5,41 @@ var gridSize = 4;
 var cellValues;
 var tileItems = [];
 var availableCells;
-//var labels = "PRC";
-var labels = "2048";
-var labelFunc;
 var targetLevel = 11;
 var checkTargetFlag = true;
 var tileComponent = Qt.createComponent("Tile.qml");
 
-switch (labels) {
-case "2048":
-    labelFunc = function(n) {
+var label = settings.value("label", "2048");
+var labelOptions = ["2048", "Degree", "Military Rank", "PRC"];
+var labelFunc = {
+    "2048":
+    function(n) {
         return Math.pow(2, n).toString();
-    };
-    break;
-case "PRC":
-    labelFunc = function(n) {
-        var dynasties = ["商", "周", "秦", "汉", "唐", "宋", "元", "明", "清", "ROC", "PRC"];
-        return dynasties[n-1];
-    };
-    break;
+    },
+    "PRC":
+    function(n) {
+        var arr = ["商", "周", "秦", "汉", "唐", "宋", "元", "明", "清", "民国", "天朝", "天庭"];
+        if (n > 0 && n < arr.length)
+            return arr[n-1];
+        else
+            return "";
+    },
+    "Military Rank":
+    function(n) {
+        var arr = ["少尉", "中尉", "上尉", "少校", "中校", "上校", "大校", "少将", "中将", "上将", "元帅", "大元帅"];
+        if (n > 0 && n < arr.length)
+            return arr[n-1];
+        else
+            return "";
+    },
+    "Degree":
+    function(n) {
+        var arr = ["幼儿园", "小学", "初中", "高中", "学士", "硕士", "博士", "博士后", "勇士", "壮士", "烈士", "圣斗士"];
+        if (n > 0 && n < arr.length)
+            return arr[n-1];
+        else
+            return "";
+    }
 }
 
 
@@ -303,7 +319,7 @@ function isDead() {
     return dead;
 }
 
-function computeTileStyle(n) {
+function computeTileStyle(n, tileText) {
     var fgColors = ["#776E62", "#F9F6F2"];
     var bgColors = ["#EEE4DA", "#EDE0C8", "#F2B179", "#F59563", "#F67C5F", "#F65E3B", "#EDCF72", "#EDCC61", "#EDC850", "#EDC53F", "#EDC22E", "#3C3A32"];
     var sty = {bgColor: helper.myColors.bggray,
@@ -318,25 +334,32 @@ function computeTileStyle(n) {
             sty.bgColor = bgColors[bgColors.length-1];
     }
 
-    if (labels === "2048") {
-        /* Adjust font size according to size of the number
-        [2, 100): 55
-        [100, 1000): 45
-        [1000, 2048]: 35
-        > 2048: 30
-        */
-        var pv = Math.pow(2, n);
-        if (pv >= 100 && pv < 1000)
-            sty.fontSize = 45;
-        else if (pv >= 1000 && pv <= 2048)
-            sty.fontSize = 35;
-        else if (pv > 2048)
-            sty.fontSize = 30;
-
-    }
+    /* Adjust font size according to the length of the text
+    <= 2: 55
+    {3, 4}: 45
+    {5, 6}: 35
+    > 6: 30
+    */
+    var tlen = getLengthInBytes(tileText);
+    if (tlen <= 2)
+        sty.fontSize = 50;
+    else if (tlen <= 4)
+        sty.fontSize = 40;
+    else if (tlen <= 6)
+        sty.fontSize = 30;
+    else
+        sty.fontSize = 20;
 
     return sty;
 }
+
+function getLengthInBytes(str) {
+    // getLengthInBytes("一二三") = 6
+    // getLengthInBytes("123") = 3
+    var b = str.match(/[^\x00-\xff]/g); // Multi-byte characters (Chinese) occupy twice more space
+    return (str.length + (!b ? 0: b.length));
+}
+
 
 function maxTileValue() {
     var mv = 0;
@@ -353,8 +376,8 @@ function maxTileValue() {
 
 function createTileObject(ind, n, isStartup) {
     var tile;
-    var sty = computeTileStyle(n);
-    var tileText = labelFunc(n);
+    var tileText = labelFunc[label](n);
+    var sty = computeTileStyle(n, tileText);
 
     tile = tileComponent.createObject(tileGrid, {"x": cells.itemAt(ind).x, "y": cells.itemAt(ind).y, "color": sty.bgColor, "tileColor": sty.fgColor, "tileFontSize": sty.fontSize, "tileText": tileText});
     if (! isStartup) {
@@ -387,8 +410,9 @@ function moveMergeTilesLeftRight(i, v, v2, indices, left) {
                 tileItems[gridSize*i+j].x = cells.itemAt(gridSize*i+indices[j]).x;
 //                tileItems[gridSize*i+j].destroy();
 
-                var sty = computeTileStyle(v2[indices[j]]);
-                tileItems[gridSize*i+indices[j]].tileText = labelFunc(v2[indices[j]]);
+                var tileText = labelFunc[label](v2[indices[j]]);
+                var sty = computeTileStyle(v2[indices[j]], tileText);
+                tileItems[gridSize*i+indices[j]].tileText = tileText;
                 tileItems[gridSize*i+indices[j]].color = sty.bgColor;
                 tileItems[gridSize*i+indices[j]].tileColor = sty.fgColor;
                 tileItems[gridSize*i+indices[j]].tileFontSize = sty.fontSize;
@@ -420,8 +444,9 @@ function moveMergeTilesUpDown(i, v, v2, indices, up) {
                 tileItems[gridSize*j+i].y = cells.itemAt(gridSize*indices[j]+i).y;
 //                tileItems[gridSize*j+i].destroy();
 
-                var sty = computeTileStyle(v2[indices[j]]);
-                tileItems[gridSize*indices[j]+i].tileText = labelFunc(v2[indices[j]]);
+                var tileText = labelFunc[label](v2[indices[j]]);
+                var sty = computeTileStyle(v2[indices[j]], tileText);
+                tileItems[gridSize*indices[j]+i].tileText = tileText;
                 tileItems[gridSize*indices[j]+i].color = sty.bgColor;
                 tileItems[gridSize*indices[j]+i].tileColor = sty.fgColor;
                 tileItems[gridSize*indices[j]+i].tileFontSize = sty.fontSize;

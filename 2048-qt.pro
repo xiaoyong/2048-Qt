@@ -8,10 +8,12 @@ SOURCES += main.cpp \
 
 lupdate_only {
 SOURCES += qml/main.qml \
+           qml/Tile.qml \
            qml/2048.js
 }
 
-RESOURCES += qml.qrc
+RESOURCES += \
+    resources.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -20,11 +22,11 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 # Setting the application icon
-RC_ICONS = 2048.ico # On Windows
-ICON = 2048.ico # On Mac OSX
+win32: RC_ICONS = 2048.ico # On Windows
+macx: ICON = 2048.ico # On Mac OSX
 
 HEADERS += \
     myclass.h \
     settings.h
 
-TRANSLATIONS = 2048-qt_zh_CN.ts
+TRANSLATIONS = ts/2048-qt_zh_CN.ts

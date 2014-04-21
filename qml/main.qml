@@ -16,6 +16,7 @@ ApplicationWindow {
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
 
+        ExclusiveGroup { id: labelSettingsGroup }
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
@@ -30,9 +31,66 @@ ApplicationWindow {
                 onTriggered: MyScript.cleanUpAndQuit();
             }
         }
+
+        Menu {
+            title: qsTr("Settings")
+            MenuItem {
+                text: qsTr("2048")
+                checkable: true
+                exclusiveGroup: labelSettingsGroup
+                checked: MyScript.label === MyScript.labelOptions[0] ? true : false
+                onTriggered: {
+                    if (MyScript.label !== MyScript.labelOptions[0]) {
+                        MyScript.label = MyScript.labelOptions[0];
+                        MyScript.startupFunction();
+                    }
+                }
+            }
+            MenuItem {
+                text: qsTr("Degree")
+                checkable: true
+                exclusiveGroup: labelSettingsGroup
+                checked: MyScript.label === MyScript.labelOptions[1] ? true : false
+                onTriggered: {
+                    if (MyScript.label !== MyScript.labelOptions[1]) {
+                        MyScript.label = MyScript.labelOptions[1];
+                        MyScript.startupFunction();
+                    }
+                }
+            }
+            MenuItem {
+                text: qsTr("Military Rank")
+                checkable: true
+                exclusiveGroup: labelSettingsGroup
+                checked: MyScript.label === MyScript.labelOptions[2] ? true : false
+                onTriggered: {
+                    if (MyScript.label !== MyScript.labelOptions[2]) {
+                        MyScript.label = MyScript.labelOptions[2];
+                        MyScript.startupFunction();
+                    }
+                }
+            }
+            MenuItem {
+                text: qsTr("PRC")
+                checkable: true
+                exclusiveGroup: labelSettingsGroup
+                checked: MyScript.label === MyScript.labelOptions[3] ? true : false
+                onTriggered: {
+                    if (MyScript.label !== MyScript.labelOptions[3]) {
+                        MyScript.label = MyScript.labelOptions[3];
+                        MyScript.startupFunction();
+                    }
+                }
+            }
+        }
+
         Menu {
             id: helpMenu
             title: qsTr("Help")
+            MenuItem {
+                text: qsTr("About")
+                onTriggered: aboutDialog.open();
+            }
             MenuItem {
                 text: qsTr("About Qt")
                 onTriggered: myClass.aboutQt();
@@ -203,6 +261,13 @@ ApplicationWindow {
                     }
                 }
             }
+        }
+
+        MessageDialog {
+            id: aboutDialog
+            title: qsTr("About 2048-Qt")
+            text: qsTr("<p style='font-weight: bold; font-size: 24px'>2048-Qt</p><p>Version 0.1</p><p>2014 Qiaoyong Zhong</p>")
+            standardButtons: StandardButton.Ok
         }
 
         MessageDialog {
