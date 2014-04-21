@@ -75,6 +75,8 @@ function startupFunction() {
         console.log("Updating new high score...");
         settings.setValue("bestScore", bestScore);
     }
+    if (label !== settings.value("label", "2048"))
+        settings.setValue("label", label);
 
     console.log("Started a new game");
 }
@@ -465,5 +467,7 @@ function cleanUpAndQuit() {
         console.log("Updating new high score...");
         settings.setValue("bestScore", bestScore);
     }
+    if (label !== settings.value("label", "2048"))
+        settings.setValue("label", label);
     Qt.quit();
 }
