@@ -14,11 +14,13 @@ Rectangle {
     property bool runNewTileAnim: false
     property bool destroyFlag: false
 
+    FontLoader { id: localFont; source: "qrc:///fonts/DroidSansFallback.ttf" }
+
     Text {
         id: tileLabel
         text: tileText
         color: tileColor
-        font.family: "Sans-serif"
+        font.family: localFont.name
         font.pixelSize: tileFontSize
         font.bold: true
         anchors.centerIn: parent

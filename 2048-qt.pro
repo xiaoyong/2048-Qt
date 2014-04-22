@@ -30,3 +30,5 @@ HEADERS += \
     settings.h
 
 TRANSLATIONS = ts/2048-qt_zh_CN.ts
+
+VERSION = 0.1.0
