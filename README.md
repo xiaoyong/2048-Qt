@@ -4,7 +4,7 @@ A clone of [2048](https://github.com/gabrielecirulli/2048), implemented in Qt.
 
 ## Features
 
-- Cross platform
+- Cross platform  
   Currently tested on Windows and Linux. Should be able to run on Mac OS X or even Android and iOS.
 - Shipped with multiple variants
   - 2048
