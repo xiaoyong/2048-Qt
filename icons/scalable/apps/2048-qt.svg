@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="106.25"
+   height="106.25"
+   id="svg2">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient5199">
+      <stop
+         id="stop5201"
+         style="stop-color:#0000ff;stop-opacity:1"
+         offset="0" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-158.13869,-381.36248)"
+     id="layer1">
+    <g
+       id="g5261">
+      <text
+         x="35.018265"
+         y="70.595039"
+         transform="translate(157.78125,258.81531)"
+         id="text2990"
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"><tspan
+           x="35.018265"
+           y="70.595039"
+           id="tspan2992"></tspan></text>
+      <g
+         transform="translate(0.67578802,-1.2119579)"
+         id="g3786">
+        <rect
+           width="106.25"
+           height="53.125"
+           rx="3"
+           ry="3"
+           x="-0.31834787"
+           y="123.75913"
+           transform="translate(157.78125,258.81531)"
+           id="rect3766"
+           style="fill:#edc22d;fill-opacity:1;stroke:none" />
+        <text
+           x="210.65822"
+           y="422.07443"
+           id="text5205"
+           xml:space="preserve"
+           style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#f9f6f2;fill-opacity:1;stroke:none;font-family:Droid Sans Fallback;-inkscape-font-specification:Droid Sans Fallback"><tspan
+             x="210.65822"
+             y="422.07443"
+             id="tspan5207">2048</tspan><tspan
+             x="210.65822"
+             y="458.07443"
+             id="tspan5227" /></text>
+      </g>
+      <g
+         transform="translate(0.31834702,-4.2948979)"
+         id="g3792">
+        <rect
+           width="106.25"
+           height="53.125"
+           rx="3"
+           ry="3"
+           x="157.82034"
+           y="438.78238"
+           id="rect3766-1"
+           style="fill:#80c342;fill-opacity:1;stroke:none" />
+        <text
+           x="190.69534"
+           y="474.76675"
+           id="text2994"
+           xml:space="preserve"
+           style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Sans Fallback;-inkscape-font-specification:Droid Sans Fallback"><tspan
+             x="190.69534"
+             y="474.76675"
+             id="tspan2996">Qt</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

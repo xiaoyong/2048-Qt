@@ -22,8 +22,8 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 # Setting the application icon
-win32: RC_ICONS = 2048.ico # On Windows
-macx: ICON = 2048.ico # On Mac OSX
+win32: RC_ICONS = icons/2048-qt.ico # On Windows
+macx: ICON = icons/2048-qt.ico # On Mac OSX
 
 HEADERS += \
     myclass.h \
