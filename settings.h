@@ -16,6 +16,7 @@ public:
     Q_INVOKABLE QString getVersion();
 
     void setVersion(const QString version);
+    bool contains(const QString & key) const;
 
 signals:
 

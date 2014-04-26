@@ -13,7 +13,13 @@ int main(int argc, char *argv[])
     settings.setVersion(QString(VER));
 
     // Localization
-    QString locale = settings.value("language", QLocale::system().name()).toString();
+    QString locale;
+    if (settings.contains("language")) {
+        locale = settings.value("language").toString();
+    } else {
+        locale = QLocale::system().name();
+        settings.setValue("language", locale);
+    }
     QString tsFile = "2048-qt_" + locale;
 
     QTranslator translator;

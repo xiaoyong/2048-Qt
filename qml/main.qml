@@ -93,9 +93,9 @@ ApplicationWindow {
                     text: qsTr("English")
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
-                    checked: settings.value("language", "en_US") === "en_US" ? true : false
+                    checked: settings.value("language") === "en_US" ? true : false
                     onTriggered: {
-                        if (settings.value("language", "en_US") !== "en_US") {
+                        if (settings.value("language") !== "en_US") {
                             settings.setValue("language", "en_US");
                             changeLanguageDialog.open();
                         }
@@ -105,9 +105,9 @@ ApplicationWindow {
                     text: qsTr("Simplified Chinese")
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
-                    checked: settings.value("language", "en_US") === "zh_CN" ? true : false
+                    checked: settings.value("language") === "zh_CN" ? true : false
                     onTriggered: {
-                        if (settings.value("language", "en_US") !== "zh_CN") {
+                        if (settings.value("language") !== "zh_CN") {
                             settings.setValue("language", "zh_CN");
                             changeLanguageDialog.open();
                         }

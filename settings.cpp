@@ -8,6 +8,10 @@ Settings::~Settings() {
     delete settings_;
 }
 
+bool Settings::contains(const QString & key) const {
+    return settings_->contains(key);
+}
+
 void Settings::setValue(const QString &key, const QVariant &value) {
     settings_->setValue(key, value);
 }
