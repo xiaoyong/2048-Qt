@@ -35,6 +35,14 @@ All required Qt libraries have been packed into one .exe file. So it should work
 
 The Qt libraries (version >= 5.2.1) are required. Make sure that they are installed on you system.
 
+### Arch Linux
+
+Install the AUR package [2048-qt](https://aur.archlinux.org/packages/2048-qt/) through:
+```
+yaourt 2048-qt
+```
+And please vote it if you like it.
+
 ## Todo
 
 - AI support
