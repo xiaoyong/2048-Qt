@@ -13,7 +13,7 @@ A clone of [2048](https://github.com/gabrielecirulli/2048), implemented in Qt.
   - PRC (天朝)
 - Multi-language support, currently
   - English
-  - Chinese
+  - Simplified Chinese
 
 ## Screenshots
 
@@ -25,13 +25,15 @@ A clone of [2048](https://github.com/gabrielecirulli/2048), implemented in Qt.
 
 ## Downloads
 
+Check https://github.com/xiaoyong/2048-Qt/releases for compiled binary executable files. 
+
 ### Windows
 
-Check https://github.com/xiaoyong/2048-Qt/releases for compiled binary files. All required Qt libraries have been packed into one .exe file.
+All required Qt libraries have been packed into one .exe file. So it should work out of the box.
 
 ### Linux
 
-The [bin/](https://github.com/xiaoyong/2048-Qt/tree/master/bin) directory contains the compiled binary file for 64-bit Linux. To run it, the Qt libraries (version >= 5.2.1) are required and should be installed on you system.
+The Qt libraries (version >= 5.2.1) are required. Make sure that they are installed on you system.
 
 ## Todo
 

@@ -15,3 +15,11 @@ void Settings::setValue(const QString &key, const QVariant &value) {
 QVariant Settings::value(const QString &key, const QVariant &defaultValue) const {
     return settings_->value(key, defaultValue);
 }
+
+void Settings::setVersion(QString version) {
+    appVersion = version;
+}
+
+QString Settings::getVersion() {
+    return appVersion;
+}

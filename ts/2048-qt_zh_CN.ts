@@ -9,103 +9,128 @@
         <translation>2048游戏</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="22"/>
+        <location filename="../qml/main.qml" line="24"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="24"/>
-        <location filename="../qml/main.qml" line="230"/>
+        <location filename="../qml/main.qml" line="26"/>
+        <location filename="../qml/main.qml" line="264"/>
         <source>New Game</source>
         <translation>新游戏</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="29"/>
+        <location filename="../qml/main.qml" line="31"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="36"/>
+        <location filename="../qml/main.qml" line="38"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="38"/>
+        <location filename="../qml/main.qml" line="40"/>
+        <source>Labeling</source>
+        <translation>标签系统</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="42"/>
         <source>2048</source>
         <translation>2048</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="50"/>
+        <location filename="../qml/main.qml" line="54"/>
         <source>Degree</source>
         <translation>学位</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="62"/>
+        <location filename="../qml/main.qml" line="66"/>
         <source>Military Rank</source>
         <translation>军衔</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="74"/>
+        <location filename="../qml/main.qml" line="78"/>
         <source>PRC</source>
         <translation>天朝</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="89"/>
+        <location filename="../qml/main.qml" line="91"/>
+        <source>Language</source>
+        <translation>语言</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="93"/>
+        <source>English</source>
+        <translation>英语</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="105"/>
+        <source>Simplified Chinese</source>
+        <translation>简体中文</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="121"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="91"/>
+        <location filename="../qml/main.qml" line="123"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="95"/>
+        <location filename="../qml/main.qml" line="127"/>
         <source>About Qt</source>
         <translation>关于Qt</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="151"/>
+        <location filename="../qml/main.qml" line="185"/>
         <source>SCORE</source>
         <translation>得分</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="151"/>
+        <location filename="../qml/main.qml" line="185"/>
         <source>BEST</source>
         <translation>最高分</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="211"/>
+        <location filename="../qml/main.qml" line="245"/>
         <source>Join the numbers and get to the &lt;b&gt;2048 tile&lt;/b&gt;!</source>
         <translation>把相同的数字相加，得到&lt;b&gt;2048&lt;/b&gt;！</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="268"/>
+        <location filename="../qml/main.qml" line="302"/>
+        <source>Language Setting Hint</source>
+        <translation>语言设置提示</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="303"/>
+        <source>Please restart the program to make the language setting take effect.</source>
+        <translation>为了让语言设置生效，请重启程序。</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="309"/>
         <source>About 2048-Qt</source>
         <translation>关于2048-Qt</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="269"/>
-        <source>&lt;p style=&apos;font-weight: bold; font-size: 24px&apos;&gt;2048-Qt&lt;/p&gt;&lt;p&gt;Version 0.1&lt;/p&gt;&lt;p&gt;2014 Qiaoyong Zhong&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/main.qml" line="275"/>
+        <location filename="../qml/main.qml" line="316"/>
         <source>Game Over</source>
         <translation>游戏结束</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="276"/>
+        <location filename="../qml/main.qml" line="317"/>
         <source>Game Over!</source>
         <translation>游戏结束！</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="286"/>
+        <location filename="../qml/main.qml" line="327"/>
         <source>You Win</source>
         <translation>你赢了</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="287"/>
+        <location filename="../qml/main.qml" line="328"/>
         <source>You win! Continue playing?</source>
         <translation>你赢了！要继续玩吗？</translation>
     </message>

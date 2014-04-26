@@ -9,9 +9,11 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    Settings settings(0, "xiaoyong", "2048-Qt");
+    settings.setVersion(QString(VER));
 
     // Localization
-    QString locale = QLocale::system().name();
+    QString locale = settings.value("language", QLocale::system().name()).toString();
     QString tsFile = "2048-qt_" + locale;
 
     QTranslator translator;
@@ -29,7 +31,6 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("myClass", &myClass);
 
     // Access C++ object "settings" from QML as "settings"
-    Settings settings(0, "xiaoyong", "2048-Qt");
     engine.rootContext()->setContextProperty("settings", &settings);
 
     engine.load(QUrl(QStringLiteral("qrc:///qml/main.qml")));

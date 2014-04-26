@@ -16,7 +16,9 @@ ApplicationWindow {
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
 
-        ExclusiveGroup { id: labelSettingsGroup }
+    ExclusiveGroup { id: labelSettingsGroup }
+    ExclusiveGroup { id: languageSettingsGroup }
+
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
@@ -34,51 +36,81 @@ ApplicationWindow {
 
         Menu {
             title: qsTr("Settings")
-            MenuItem {
-                text: qsTr("2048")
-                checkable: true
-                exclusiveGroup: labelSettingsGroup
-                checked: MyScript.label === MyScript.labelOptions[0] ? true : false
-                onTriggered: {
-                    if (MyScript.label !== MyScript.labelOptions[0]) {
-                        MyScript.label = MyScript.labelOptions[0];
-                        MyScript.startupFunction();
+            Menu {
+                title: qsTr("Labeling")
+                MenuItem {
+                    text: qsTr("2048")
+                    checkable: true
+                    exclusiveGroup: labelSettingsGroup
+                    checked: MyScript.label === MyScript.labelOptions[0] ? true : false
+                    onTriggered: {
+                        if (MyScript.label !== MyScript.labelOptions[0]) {
+                            MyScript.label = MyScript.labelOptions[0];
+                            MyScript.startupFunction();
+                        }
+                    }
+                }
+                MenuItem {
+                    text: qsTr("Degree")
+                    checkable: true
+                    exclusiveGroup: labelSettingsGroup
+                    checked: MyScript.label === MyScript.labelOptions[1] ? true : false
+                    onTriggered: {
+                        if (MyScript.label !== MyScript.labelOptions[1]) {
+                            MyScript.label = MyScript.labelOptions[1];
+                            MyScript.startupFunction();
+                        }
+                    }
+                }
+                MenuItem {
+                    text: qsTr("Military Rank")
+                    checkable: true
+                    exclusiveGroup: labelSettingsGroup
+                    checked: MyScript.label === MyScript.labelOptions[2] ? true : false
+                    onTriggered: {
+                        if (MyScript.label !== MyScript.labelOptions[2]) {
+                            MyScript.label = MyScript.labelOptions[2];
+                            MyScript.startupFunction();
+                        }
+                    }
+                }
+                MenuItem {
+                    text: qsTr("PRC")
+                    checkable: true
+                    exclusiveGroup: labelSettingsGroup
+                    checked: MyScript.label === MyScript.labelOptions[3] ? true : false
+                    onTriggered: {
+                        if (MyScript.label !== MyScript.labelOptions[3]) {
+                            MyScript.label = MyScript.labelOptions[3];
+                            MyScript.startupFunction();
+                        }
                     }
                 }
             }
-            MenuItem {
-                text: qsTr("Degree")
-                checkable: true
-                exclusiveGroup: labelSettingsGroup
-                checked: MyScript.label === MyScript.labelOptions[1] ? true : false
-                onTriggered: {
-                    if (MyScript.label !== MyScript.labelOptions[1]) {
-                        MyScript.label = MyScript.labelOptions[1];
-                        MyScript.startupFunction();
+            Menu {
+                title: qsTr("Language")
+                MenuItem {
+                    text: qsTr("English")
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language", "en_US") === "en_US" ? true : false
+                    onTriggered: {
+                        if (settings.value("language", "en_US") !== "en_US") {
+                            settings.setValue("language", "en_US");
+                            changeLanguageDialog.open();
+                        }
                     }
                 }
-            }
-            MenuItem {
-                text: qsTr("Military Rank")
-                checkable: true
-                exclusiveGroup: labelSettingsGroup
-                checked: MyScript.label === MyScript.labelOptions[2] ? true : false
-                onTriggered: {
-                    if (MyScript.label !== MyScript.labelOptions[2]) {
-                        MyScript.label = MyScript.labelOptions[2];
-                        MyScript.startupFunction();
-                    }
-                }
-            }
-            MenuItem {
-                text: qsTr("PRC")
-                checkable: true
-                exclusiveGroup: labelSettingsGroup
-                checked: MyScript.label === MyScript.labelOptions[3] ? true : false
-                onTriggered: {
-                    if (MyScript.label !== MyScript.labelOptions[3]) {
-                        MyScript.label = MyScript.labelOptions[3];
-                        MyScript.startupFunction();
+                MenuItem {
+                    text: qsTr("Simplified Chinese")
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language", "en_US") === "zh_CN" ? true : false
+                    onTriggered: {
+                        if (settings.value("language", "en_US") !== "zh_CN") {
+                            settings.setValue("language", "zh_CN");
+                            changeLanguageDialog.open();
+                        }
                     }
                 }
             }
@@ -152,7 +184,7 @@ ApplicationWindow {
                     Text {
                         text: (index == 0) ? qsTr("SCORE") : qsTr("BEST")
                         anchors.horizontalCenter: parent.horizontalCenter
-                        y: 7
+                        y: 6
                         font.family: localFont.name
                         font.pixelSize: 13
                         color: helper.myColors.fglight
@@ -160,7 +192,7 @@ ApplicationWindow {
                     Text {
                         text: scoreText
                         anchors.horizontalCenter: parent.horizontalCenter
-                        y: 25
+                        y: 22
                         font.family: localFont.name
                         font.pixelSize: 25
                         font.bold: true
@@ -266,9 +298,16 @@ ApplicationWindow {
         }
 
         MessageDialog {
+            id: changeLanguageDialog
+            title: qsTr("Language Setting Hint")
+            text: qsTr("Please restart the program to make the language setting take effect.")
+            standardButtons: StandardButton.Ok
+        }
+
+        MessageDialog {
             id: aboutDialog
             title: qsTr("About 2048-Qt")
-            text: qsTr("<p style='font-weight: bold; font-size: 24px'>2048-Qt</p><p>Version 0.1</p><p>2014 Qiaoyong Zhong</p>")
+            text: qsTr("<p style='font-weight: bold; font-size: 24px'>2048-Qt</p><p>Version " + settings.getVersion() + "</p><p>2014 Qiaoyong Zhong &lt;solary.sh@gmail.com&gt;</p>")
             standardButtons: StandardButton.Ok
         }
 
