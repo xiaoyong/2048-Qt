@@ -33,7 +33,7 @@ All required Qt libraries have been packed into one .exe file. So it should work
 
 ### Linux
 
-The Qt libraries (version >= 5.2.1) are required. Make sure that they are installed on you system.
+The Qt libraries (version >= 5.2.1) are required. Make sure that they are installed on your system.
 
 ### Arch Linux
 
