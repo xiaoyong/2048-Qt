@@ -31,7 +31,7 @@ HEADERS += \
 
 TRANSLATIONS = ts/2048-qt_zh_CN.ts
 
-VERSION = 0.1.3
+VERSION = 0.1.4
 
 VERSTR = '\\"$${VERSION}\\"'
 DEFINES += VER=\"$${VERSTR}\"

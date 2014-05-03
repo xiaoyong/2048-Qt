@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2014-05-03 0.1.4
+* updated the version number
 * added man page and Changelog files
 * typo fix
 * added the AUR package to README.md
