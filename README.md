@@ -43,6 +43,13 @@ yaourt 2048-qt
 ```
 And please vote it if you like it.
 
+### Debian
+
+[Alejandro Garrido Mota](https://github.com/mogaal) has packaged it for Debian. On Debian unstable, install it through:
+```
+sudo apt-get install 2048-qt
+```
+
 ## Todo
 
 - AI support
