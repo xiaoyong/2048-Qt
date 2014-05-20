@@ -90,7 +90,7 @@ ApplicationWindow {
             Menu {
                 title: qsTr("Language")
                 MenuItem {
-                    text: qsTr("English")
+                    text: "English"
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
                     checked: settings.value("language") === "en_US" ? true : false
@@ -102,25 +102,25 @@ ApplicationWindow {
                     }
                 }
                 MenuItem {
-                    text: qsTr("Russian")
-                    checkable: true
-                    exclusiveGroup: languageSettingsGroup
-                    checked: settings.value("language") === "ru_RU" ? true : false
-                    onTriggered: {
-                        if (settings.value("language") !== "ru_RU") {
-                            settings.setValue("language", "ru_RU");
-                            changeLanguageDialog.open();
-                        }
-                    }
-                }
-                MenuItem {
-                    text: qsTr("Simplified Chinese")
+                    text: "简体中文"
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
                     checked: settings.value("language") === "zh_CN" ? true : false
                     onTriggered: {
                         if (settings.value("language") !== "zh_CN") {
                             settings.setValue("language", "zh_CN");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
+                MenuItem {
+                    text: "Русский"
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") === "ru_RU" ? true : false
+                    onTriggered: {
+                        if (settings.value("language") !== "ru_RU") {
+                            settings.setValue("language", "ru_RU");
                             changeLanguageDialog.open();
                         }
                     }

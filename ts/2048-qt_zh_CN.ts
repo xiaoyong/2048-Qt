@@ -60,19 +60,16 @@
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="93"/>
         <source>English</source>
-        <translation>英语</translation>
+        <translation type="vanished">英语</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="105"/>
         <source>Simplified Chinese</source>
-        <translation>简体中文</translation>
+        <translation type="vanished">简体中文</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="117"/>
         <source>Russian</source>
-        <translation>俄语</translation>
+        <translation type="vanished">俄语</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="133"/>
