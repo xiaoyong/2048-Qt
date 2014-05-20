@@ -102,6 +102,18 @@ ApplicationWindow {
                     }
                 }
                 MenuItem {
+                    text: qsTr("Russian")
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") === "ru_RU" ? true : false
+                    onTriggered: {
+                        if (settings.value("language") !== "ru_RU") {
+                            settings.setValue("language", "ru_RU");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
+                MenuItem {
                     text: qsTr("Simplified Chinese")
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
