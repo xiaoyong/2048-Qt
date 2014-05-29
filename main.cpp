@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     Settings settings(0, "xiaoyong", "2048-Qt");
-    settings.setVersion(QString(VER));
+    settings.setVersion(QString(APP_VERSION));
 
     // Localization
     QString locale;

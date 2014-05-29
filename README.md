@@ -51,6 +51,13 @@ And please vote it if you like it.
 sudo apt-get install 2048-qt
 ```
 
+### Ubuntu
+
+From Ubuntu 14.10 on, install it through:
+```
+sudo apt-get install 2048-qt
+```
+
 ## Todo
 
 - Allow the user to add his own label systems

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2014-05-29 0.1.5
+* fixed the VERSION issue for Visual Studio
+* do not translate the language names
+* Merge branch 'SBasalaev-master'
+* avoided trying to load English translation file
+* added Russian translation
+* Russian translation
+* added the Debian package in README
+
 ## 2014-05-03 0.1.4
 * updated the version number
 * added man page and Changelog files
