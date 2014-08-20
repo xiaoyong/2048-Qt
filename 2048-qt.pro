@@ -29,7 +29,7 @@ HEADERS += \
     myclass.h \
     settings.h
 
-TRANSLATIONS = ts/2048-qt_zh_CN.ts ts/2048-qt_ru_RU.ts
+TRANSLATIONS = ts/2048-qt_zh_CN.ts ts/2048-qt_ru_RU.ts ts/2048-qt_pl_PL.ts
 
 VERSION = 0.1.5
 
