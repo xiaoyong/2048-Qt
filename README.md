@@ -13,6 +13,7 @@ A clone of [2048](https://github.com/gabrielecirulli/2048), implemented in Qt.
   - PRC (天朝)
 - Multi-language support, currently
   - English
+  - French (by [Rémi Verschelde](https://github.com/akien-mga))
   - Russian (by [Sergey Basalaev](https://github.com/SBasalaev))
   - Simplified Chinese
 
