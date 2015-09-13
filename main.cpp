@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    Settings settings(0, "xiaoyong", "2048-Qt");
+    Settings settings(0, "2048-qt", "2048-Qt");
     settings.setVersion(QString(APP_VERSION));
 
     // Localization

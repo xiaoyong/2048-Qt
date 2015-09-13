@@ -51,6 +51,13 @@ And please vote it if you like it.
 sudo apt-get install 2048-qt
 ```
 
+### Gentoo
+2048-Qt is available from the overlay maintained by [Jorge Pizarro Callejas](https://github.com/jorgicio):
+```
+layman -a jorgicio
+emerge 2048-qt
+```
+
 ### Ubuntu
 
 From Ubuntu 14.10 on, install it through:

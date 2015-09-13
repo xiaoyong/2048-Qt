@@ -31,6 +31,6 @@ HEADERS += \
 
 TRANSLATIONS = ts/2048-qt_zh_CN.ts ts/2048-qt_ru_RU.ts
 
-VERSION = 0.1.5
+VERSION = 0.1.6
 
 DEFINES += APP_VERSION=\\\"$${VERSION}\\\"

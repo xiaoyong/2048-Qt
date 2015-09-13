@@ -319,7 +319,7 @@ ApplicationWindow {
         MessageDialog {
             id: aboutDialog
             title: qsTr("About 2048-Qt")
-            text: qsTr("<p style='font-weight: bold; font-size: 24px'>2048-Qt</p><p>Version " + settings.getVersion() + "</p><p>2014 Qiaoyong Zhong &lt;solary.sh@gmail.com&gt;</p>")
+            text: qsTr("<p style='font-weight: bold; font-size: 24px'>2048-Qt</p><p>Version " + settings.getVersion() + "</p><p>2015 Qiaoyong Zhong &lt;solary.sh@gmail.com&gt;</p>")
             standardButtons: StandardButton.Ok
         }
 
