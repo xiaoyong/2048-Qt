@@ -2,9 +2,10 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp \
-    myclass.cpp \
-    settings.cpp
+SOURCES += \
+    src/main.cpp \
+    src/myclass.cpp \
+    src/settings.cpp
 
 lupdate_only {
 SOURCES += qml/main.qml \
@@ -22,12 +23,12 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 # Setting the application icon
-win32: RC_ICONS = icons/2048-qt.ico # On Windows
-macx: ICON = icons/2048-qt.ico # On Mac OSX
+win32: RC_ICONS = res/icons/2048-qt.ico # On Windows
+macx: ICON = res/icons/2048-qt.ico # On Mac OSX
 
 HEADERS += \
-    myclass.h \
-    settings.h
+    src/settings.h \
+    src/myclass.h
 
 TRANSLATIONS = ts/2048-qt_zh_CN.ts ts/2048-qt_ru_RU.ts
 
