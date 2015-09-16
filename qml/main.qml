@@ -138,6 +138,18 @@ ApplicationWindow {
                         }
                     }
                 }
+                MenuItem {
+                    text: "German"
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") == "de_DE" ?  true : false
+                    onTriggered: {
+                        if (settings.value("language") != "de_DE") {
+                            settings.setValue("language", "de_DE");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
             }
         }
 
