@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>ts/2048-qt_zh_CN.qm</file>
         <file>ts/2048-qt_ru_RU.qm</file>
+        <file>ts/2048-qt_de_DE.qm</file>
         <file>qml/main.qml</file>
         <file>qml/2048.js</file>
         <file>qml/Tile.qml</file>
