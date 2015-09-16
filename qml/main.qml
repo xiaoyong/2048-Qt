@@ -207,7 +207,7 @@ ApplicationWindow {
             onClicked: parent.forceActiveFocus()
         }
 
-        FontLoader { id: localFont; source: "qrc:///fonts/DroidSansFallback.ttf" }
+        FontLoader { id: localFont; source: "qrc:///res/fonts/DroidSansFallback.ttf" }
 
         Text {
             id: gameName

@@ -14,7 +14,7 @@ Rectangle {
     property bool runNewTileAnim: false
     property bool destroyFlag: false
 
-    FontLoader { id: localFont; source: "qrc:///fonts/DroidSansFallback.ttf" }
+    FontLoader { id: localFont; source: "qrc:///res/fonts/DroidSansFallback.ttf" }
 
     Text {
         id: tileLabel
