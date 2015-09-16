@@ -102,6 +102,18 @@ ApplicationWindow {
                     }
                 }
                 MenuItem {
+                    text: "Français"
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") === "fr_FR" ? true : false
+                    onTriggered: {
+                        if (settings.value("language") !== "fr_FR") {
+                            settings.setValue("language", "fr_FR");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
+                MenuItem {
                     text: "简体中文"
                     checkable: true
                     exclusiveGroup: languageSettingsGroup

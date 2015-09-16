@@ -3,6 +3,7 @@
 Name=2048-Qt
 GenericName=2048-Qt
 Comment=The 2048 number game implemented in Qt
+Comment[fr]=Jeu de réflexion et de mathématique
 Exec=2048-qt
 Icon=2048-qt
 Terminal=false
