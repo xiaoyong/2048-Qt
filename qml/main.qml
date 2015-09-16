@@ -114,6 +114,19 @@ ApplicationWindow {
                     }
                 }
                 MenuItem {
+                    text: "Polski"
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") === "pl_PL" ? true : false
+                    onTriggered: {
+                        if (settings.value("language") !== "pl_PL") {
+                            settings.setValue("language", "pl_PL");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
+
+                MenuItem {
                     text: "Русский"
                     checkable: true
                     exclusiveGroup: languageSettingsGroup
