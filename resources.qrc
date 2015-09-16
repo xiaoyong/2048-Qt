@@ -3,7 +3,11 @@
         <file>ts/2048-qt_zh_CN.qm</file>
         <file>ts/2048-qt_pl_PL.qm</file>
         <file>ts/2048-qt_ru_RU.qm</file>
+<<<<<<< HEAD
         <file>ts/2048-qt_de_DE.qm</file>
+=======
+        <file>ts/2048-qt_fr_FR.qm</file>
+>>>>>>> 06f7ea31b324f1c8320c7197a56aee429ce6ba33
         <file>qml/main.qml</file>
         <file>qml/2048.js</file>
         <file>qml/Tile.qml</file>
