@@ -1,5 +1,9 @@
 # Changelog
 
+## 2015-09-19 0.1.6
+* added French, German, Polish translation
+* put config file in `~/.config/2048-qt/` instead of `~/.config/xiaoyong/`
+
 ## 2014-05-29 0.1.5
 * fixed the VERSION issue for Visual Studio
 * do not translate the language names
