@@ -33,7 +33,7 @@
 * updated README.md
 
 ## 2014-04-22 0.1.0
-* embeded Droid Sans Fallback font
+* embedded Droid Sans Fallback font
 * save label setting
 * added more variants of 2048 and selection of them
 * improved the out of focus issue
