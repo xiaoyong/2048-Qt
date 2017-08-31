@@ -20,6 +20,8 @@ ApplicationWindow {
     ExclusiveGroup { id: languageSettingsGroup }
 
     menuBar: MenuBar {
+        __contentItem.visible: settings.value("showMenu", true) === "true" ? true : false
+
         Menu {
             title: qsTr("File")
             MenuItem {
@@ -36,6 +38,16 @@ ApplicationWindow {
 
         Menu {
             title: qsTr("Settings")
+            MenuItem {
+                text: qsTr("Show Menu")
+                shortcut: "Ctrl+M"
+                checkable: true
+                checked: settings.value("showMenu", true) === "true" ? true : false
+                onToggled: {
+                    settings.setValue("showMenu", checked);
+                    menuBar.__contentItem.visible = checked
+                }
+            }
             Menu {
                 title: qsTr("Labeling")
                 MenuItem {
