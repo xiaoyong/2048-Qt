@@ -17,7 +17,7 @@ RESOURCES += \
     resources.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+QML_IMPORT_PATH = /usr/lib/i386-linux-gnu/qt5/imports
 
 # Default rules for deployment.
 include(deployment.pri)
@@ -30,7 +30,7 @@ HEADERS += \
     src/settings.h \
     src/myclass.h
 
-TRANSLATIONS = ts/2048-qt_de_DE.ts ts/2048-qt_fr_FR.ts ts/2048-qt_pl_PL.ts ts/2048-qt_ru_RU.ts ts/2048-qt_zh_CN.ts
+TRANSLATIONS = ts/2048-qt_de_DE.ts ts/2048-qt_fr_FR.ts ts/2048-qt_pl_PL.ts ts/2048-qt_ru_RU.ts ts/2048-qt_zh_CN.ts ts/2048-qt_pt_BR.ts
 
 VERSION = 0.1.6
 

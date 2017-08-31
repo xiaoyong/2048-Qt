@@ -1,0 +1,190 @@
+diff --git a/2048-qt.pro b/2048-qt.pro
+index b4dbc85..a771679 100644
+--- a/2048-qt.pro
++++ b/2048-qt.pro
+@@ -17,7 +17,7 @@ RESOURCES += \
+     resources.qrc
+ 
+ # Additional import path used to resolve QML modules in Qt Creator's code model
+-QML_IMPORT_PATH =
++QML_IMPORT_PATH = /usr/lib/i386-linux-gnu/qt5/imports
+ 
+ # Default rules for deployment.
+ include(deployment.pri)
+@@ -30,7 +30,7 @@ HEADERS += \
+     src/settings.h \
+     src/myclass.h
+ 
+-TRANSLATIONS = ts/2048-qt_de_DE.ts ts/2048-qt_fr_FR.ts ts/2048-qt_pl_PL.ts ts/2048-qt_ru_RU.ts ts/2048-qt_zh_CN.ts
++TRANSLATIONS = ts/2048-qt_de_DE.ts ts/2048-qt_fr_FR.ts ts/2048-qt_pl_PL.ts ts/2048-qt_ru_RU.ts ts/2048-qt_zh_CN.ts ts/2048-qt_pt_BR.ts
+ 
+ VERSION = 0.1.6
+ 
+diff --git a/qml/main.qml b/qml/main.qml
+index 6bbd8a6..8b4a2e7 100644
+--- a/qml/main.qml
++++ b/qml/main.qml
+@@ -162,6 +162,18 @@ ApplicationWindow {
+                         }
+                     }
+                 }
++                MenuItem {
++                    text: "Português"
++                    checkable: true
++                    exclusiveGroup: languageSettingsGroup
++                    checked: settings.value("language") == "pt_BR" ?  true : false
++                    onTriggered: {
++                        if (settings.value("language") != "pt_BR") {
++                            settings.setValue("language", "pt_BR");
++                            changeLanguageDialog.open();
++                        }
++                    }
++                }
+             }
+         }
+ 
+diff --git a/resources.qrc b/resources.qrc
+index 68846ab..02a6db1 100644
+--- a/resources.qrc
++++ b/resources.qrc
+@@ -9,5 +9,6 @@
+         <file>qml/2048.js</file>
+         <file>qml/Tile.qml</file>
+         <file>res/fonts/DroidSansFallback.ttf</file>
++        <file>ts/2048-qt_pt_BR.qm</file>
+     </qresource>
+ </RCC>
+diff --git a/ts/2048-qt_pt_BR.ts b/ts/2048-qt_pt_BR.ts
+new file mode 100644
+index 0000000..4d67e93
+--- /dev/null
++++ b/ts/2048-qt_pt_BR.ts
+@@ -0,0 +1,128 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!DOCTYPE TS>
++<TS version="2.0" language="pt_BR">
++<context>
++    <name>main</name>
++    <message>
++        <location filename="../qml/main.qml" line="13"/>
++        <source>2048 Game</source>
++        <translation>2048</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="24"/>
++        <source>File</source>
++        <translation>Arquivo</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="26"/>
++        <location filename="../qml/main.qml" line="276"/>
++        <source>New Game</source>
++        <translation>Novo Jogo</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="31"/>
++        <source>Exit</source>
++        <translation>Sair</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="38"/>
++        <source>Settings</source>
++        <translation>Configurações</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="40"/>
++        <source>Labeling</source>
++        <translation>Peças</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="42"/>
++        <source>2048</source>
++        <translation>2048</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="54"/>
++        <source>Degree</source>
++        <translation>Grau</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="66"/>
++        <source>Military Rank</source>
++        <translation>Hierarquia militar</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="78"/>
++        <source>PRC</source>
++        <translation>PRC</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="91"/>
++        <source>Language</source>
++        <translation>Idioma</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="133"/>
++        <source>Help</source>
++        <translation>Ajuda</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="135"/>
++        <source>About</source>
++        <translation>Sobre</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="139"/>
++        <source>About Qt</source>
++        <translation>Sobre o Qt</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="197"/>
++        <source>SCORE</source>
++        <translation>PONTUAÇÃO</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="197"/>
++        <source>BEST</source>
++        <translation>RECORDE</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="257"/>
++        <source>Join the numbers and get to the &lt;b&gt;2048 tile&lt;/b&gt;!</source>
++        <translation>Combine os numeros e obtenha a peça &lt;b&gt;2048&lt;/b&gt; !</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="314"/>
++        <source>Language Setting Hint</source>
++        <translation>Configurar idioma</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="315"/>
++        <source>Please restart the program to make the language setting take effect.</source>
++        <translation>Por favor, reinicie o programa para que a alteração de idioma tenha efeito.</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="321"/>
++        <source>About 2048-Qt</source>
++        <translation>Sobre 2048-Qt</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="328"/>
++        <source>Game Over</source>
++        <translation>Fim do jogo</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="329"/>
++        <source>Game Over!</source>
++        <translation>Fim do jogo!</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="339"/>
++        <source>You Win</source>
++        <translation>Você venceu</translation>
++    </message>
++    <message>
++        <location filename="../qml/main.qml" line="340"/>
++        <source>You win! Continue playing?</source>
++        <translation>Você venceu! Continuar jogando?</translation>
++    </message>
++</context>
++</TS>
