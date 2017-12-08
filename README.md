@@ -18,6 +18,7 @@ A clone of [2048](https://github.com/gabrielecirulli/2048), implemented in Qt.
   - Polish (by [Michał Radwański](https://github.com/enedil))
   - Russian (by [Sergey Basalaev](https://github.com/SBasalaev))
   - Simplified Chinese
+  - Spanish (by [Benjamin Brown](https://github.com/9define))
 
 ## Screenshots
 
@@ -43,7 +44,7 @@ The Qt libraries (version >= 5.2.1) are required. Make sure that they are instal
 
 Install the AUR package [2048-qt](https://aur.archlinux.org/packages/2048-qt/) through:
 ```
-yaourt 2048-qt
+aurget -S 2048-qt
 ```
 And please vote it if you like it.
 
