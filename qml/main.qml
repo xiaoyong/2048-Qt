@@ -25,7 +25,10 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("New Game")
                 shortcut: "Ctrl+N"
-                onTriggered: MyScript.startupFunction();
+                onTriggered: {
+                    MyScript.clearCurrentCellValuesSetting()
+                    MyScript.startupFunction();
+                }
             }
             MenuItem {
                 text: qsTr("Exit")
@@ -318,7 +321,10 @@ ApplicationWindow {
                     }
                 }
             }
-            onClicked: MyScript.startupFunction()
+            onClicked: {
+                MyScript.clearCurrentCellValuesSetting()
+                MyScript.startupFunction()
+            }
         }
 
         Rectangle {
@@ -366,6 +372,7 @@ ApplicationWindow {
             text: qsTr("Game Over!")
             standardButtons: StandardButton.Retry | StandardButton.Abort
             onAccepted: {
+                MyScript.clearCurrentCellValuesSetting()
                 MyScript.startupFunction();
             }
             onRejected: MyScript.cleanUpAndQuit();
@@ -390,4 +397,5 @@ ApplicationWindow {
     }
 
     Component.onCompleted: MyScript.startupFunction();
+    Component.onDestruction: MyScript.saveSettings();
 }

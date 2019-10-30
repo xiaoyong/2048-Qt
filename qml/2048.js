@@ -45,7 +45,7 @@ var labelFunc = {
 
 function startupFunction() {
     // Initialize variables
-    score = 0;
+    score = Number(settings.value("currentScore", 0));
     checkTargetFlag = true;
     var i;
     var j;
@@ -65,9 +65,29 @@ function startupFunction() {
         tileItems[i] = null;
     }
 
-    updateAvailableCells();
-    createNewTileItems(true);
-    updateScore(0);
+    if (settings.contains("currentCellValues")) {
+        console.log("Reading saved cell values");
+        var cells = settings.list("currentCellValues");
+        for(i = 0; i < gridSize; i++) {
+            for(j = 0; j < gridSize; j++) {
+                cellValues[i][j] = Number(cells[i*gridSize + j]);
+                if(cellValues[i][j] !== 0) {
+                    tileItems[i*gridSize + j] = createTileObject(i*gridSize + j, cellValues[i][j], true);
+                }
+                if(cellValues[i][j] >= targetLevel)
+                {
+                    checkTargetFlag = false;
+                }
+            }
+        }
+        updateAvailableCells();
+    } else {
+        console.log("No board saved, starting empty");
+        updateAvailableCells();
+        createNewTileItems(true);
+    }
+    updateScore(score);
+
     addScoreText.parent = scoreBoard.itemAt(0);
 
     // Save the currently achieved best score
@@ -462,12 +482,37 @@ function moveMergeTilesUpDown(i, v, v2, indices, up) {
     }
 }
 
-function cleanUpAndQuit() {
+function clearCurrentCellValuesSetting() {
+    console.log("Removing cells values setting...");
+    settings.remove("currentCellValues");
+    settings.remove("currentScore");
+}
+
+function saveSettings() {
+    if (isDead()) {
+        clearCurrentCellsSetting();
+    } else {
+        console.log("Saving cell values...");
+        var cells = [];
+        for(x = 0; x < gridSize; ++x) {
+            for(y = 0; y < gridSize; ++y) {
+                cells[x*gridSize + y] = cellValues[x][y];
+            }
+        }
+        settings.setList("currentCellValues", cells);
+        settings.setValue("currentScore", score);
+    }
+
     if (bestScore > settings.value("bestScore", 0)) {
         console.log("Updating new high score...");
         settings.setValue("bestScore", bestScore);
     }
     if (label !== settings.value("label", "2048"))
         settings.setValue("label", label);
+}
+
+function cleanUpAndQuit() {
+    console.log("Quitting...");
+    saveSettings();
     Qt.quit();
 }
