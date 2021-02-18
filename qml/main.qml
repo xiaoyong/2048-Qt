@@ -13,9 +13,6 @@ ApplicationWindow {
     title: qsTr("2048 Game");
 //    flags: Qt.Window | Qt.WindowTitleHint  | Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint | Qt.CustomizeWindowHint
 
-    x: (Screen.width - width) / 2
-    y: (Screen.height - height) / 2
-
     ExclusiveGroup { id: labelSettingsGroup }
     ExclusiveGroup { id: languageSettingsGroup }
 
