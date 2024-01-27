@@ -162,6 +162,18 @@ ApplicationWindow {
                         }
                     }
                 }
+                MenuItem {
+                    text: "Português"
+                    checkable: true
+                    exclusiveGroup: languageSettingsGroup
+                    checked: settings.value("language") == "pt_BR" ?  true : false
+                    onTriggered: {
+                        if (settings.value("language") != "pt_BR") {
+                            settings.setValue("language", "pt_BR");
+                            changeLanguageDialog.open();
+                        }
+                    }
+                }
             }
         }
 

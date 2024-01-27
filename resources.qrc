@@ -9,5 +9,6 @@
         <file>qml/2048.js</file>
         <file>qml/Tile.qml</file>
         <file>res/fonts/DroidSansFallback.ttf</file>
+        <file>ts/2048-qt_pt_BR.qm</file>
     </qresource>
 </RCC>
